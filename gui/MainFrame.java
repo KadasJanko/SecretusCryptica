@@ -2,11 +2,15 @@ package gui;
 
 import gui.menubar.Menu;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {
     
     public Menu menu;
+    
+    private ActionHandler actionHandler;
     
     // Constructor
     public MainFrame() {
@@ -22,6 +26,19 @@ public class MainFrame extends JFrame {
         this.menu = new Menu();
         this.add(menu);
         
+        this.actionHandler = new  ActionHandler();
+        this.menu.menuFile.menuFileExit.addActionListener(actionHandler);
+        
         this.setVisible(true);
+    }
+    
+    class ActionHandler implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == menu.menuFile.menuFileExit) {
+                dispose();
+            }
+        }
     }
 }
