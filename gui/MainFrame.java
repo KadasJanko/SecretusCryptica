@@ -1,9 +1,12 @@
 package gui;
 
+import gui.menubar.Menu;
 import java.awt.Color;
 import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {
+    
+    public Menu menu;
     
     // Constructor
     public MainFrame() {
@@ -15,6 +18,9 @@ public class MainFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(null); // all components will be manually bounded for now
         this.getContentPane().setBackground(new Color(223, 223, 223));
+        
+        this.menu = new Menu();
+        this.add(menu);
         
         this.setVisible(true);
     }
