@@ -24,6 +24,14 @@ public class MainFrame extends JFrame {
     
     TextInputHandler textInputHandler;
     
+    public ButtonAdd buttonAdd;
+    public ButtonRemove buttonRemove;
+    public ButtonUp buttonUp;
+    public ButtonDown buttonDown;
+    public ButtonMoveUp buttonMoveUp;
+    public ButtonMoveDown buttonMoveDown;
+    public ButtonSetup buttonSetup;
+    
     // Constructor
     public MainFrame(DataHolder data) {
         
@@ -61,6 +69,27 @@ public class MainFrame extends JFrame {
         
         textInputHandler = new TextInputHandler();
         this.textInput.addKeyListener(textInputHandler);
+        
+        this.buttonAdd = new ButtonAdd();
+        this.add(buttonAdd);
+        
+        this.buttonRemove = new ButtonRemove();
+        this.add(buttonRemove);
+        
+        this.buttonUp = new ButtonUp();
+        this.add(buttonUp);
+        
+        this.buttonDown = new ButtonDown();
+        this.add(buttonDown);
+        
+        this.buttonMoveUp = new ButtonMoveUp();
+        this.add(buttonMoveUp);
+        
+        this.buttonMoveDown = new ButtonMoveDown();
+        this.add(buttonMoveDown);
+        
+        this.buttonSetup = new ButtonSetup();
+        this.add(buttonSetup);
         
         this.setVisible(true);
     }
