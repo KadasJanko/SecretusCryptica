@@ -1,11 +1,14 @@
 package gui;
 
+import gui.dialog.DialogAddFunction;
 import gui.menubar.Menu;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -32,6 +35,9 @@ public class MainFrame extends JFrame {
     public ButtonMoveDown buttonMoveDown;
     public ButtonSetup buttonSetup;
     public MethodList methodList;
+    
+    private DialogAddFunction dialogAddFunction;
+    private MouseHandler mouseHandler;
     
     // Constructor
     public MainFrame(DataHolder data) {
@@ -71,8 +77,13 @@ public class MainFrame extends JFrame {
         textInputHandler = new TextInputHandler();
         this.textInput.addKeyListener(textInputHandler);
         
+        this.mouseHandler = new MouseHandler();
+        
         this.buttonAdd = new ButtonAdd();
+        this.buttonAdd.addMouseListener(mouseHandler);
         this.add(buttonAdd);
+        
+        this.dialogAddFunction = new DialogAddFunction();
         
         this.buttonRemove = new ButtonRemove();
         this.add(buttonRemove);
@@ -130,5 +141,20 @@ public class MainFrame extends JFrame {
         }
         
         @Override public void keyTyped(KeyEvent ke) {}
+    }
+    
+    class MouseHandler implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (e.getSource() == buttonAdd) {
+                dialogAddFunction.setVisible(true);
+            }
+        }
+
+        @Override public void mousePressed(MouseEvent me) {}
+        @Override public void mouseReleased(MouseEvent me) {}
+        @Override public void mouseEntered(MouseEvent me) {}
+        @Override public void mouseExited(MouseEvent me) {}
     }
 }
