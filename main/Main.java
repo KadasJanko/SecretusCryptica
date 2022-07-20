@@ -16,13 +16,8 @@ public class Main {
         MainFrame mainFrame = new MainFrame(data);
         
         // testing code snippet
-        String message = "This code should be backwards.";
-        System.out.println("Message: " + message);
-        
-        FunctionReverseText reverser = new FunctionReverseText(message);
-        reverser.process();
-        
-        System.out.println("Result: " + reverser.getOutput());
+        FunctionReverseText reverser = new FunctionReverseText();
+        data.addFunction(reverser);
         // end of test
     }
 }
