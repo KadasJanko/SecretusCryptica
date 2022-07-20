@@ -31,6 +31,7 @@ public class MainFrame extends JFrame {
     public ButtonMoveUp buttonMoveUp;
     public ButtonMoveDown buttonMoveDown;
     public ButtonSetup buttonSetup;
+    public MethodList methodList;
     
     // Constructor
     public MainFrame(DataHolder data) {
@@ -90,6 +91,14 @@ public class MainFrame extends JFrame {
         
         this.buttonSetup = new ButtonSetup();
         this.add(buttonSetup);
+        
+        this.methodList = new MethodList();
+        JScrollPane methodListScrollPane = new JScrollPane(methodList);
+        methodListScrollPane.setBounds(364, 28, 256, 208);
+        methodListScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        methodListScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        methodListScrollPane.setBorder(BorderFactory.createBevelBorder(1));
+        this.add(methodListScrollPane);
         
         this.setVisible(true);
     }
