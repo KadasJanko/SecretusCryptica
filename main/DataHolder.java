@@ -8,6 +8,7 @@ public class DataHolder {
     private String output;
     
     private Function[] functionList;
+    private int selection;
     
     // Constructor
     public DataHolder() {
@@ -15,9 +16,8 @@ public class DataHolder {
         this.input = "";
         this.output = "";
         this.functionList = new Function[0];
+        this.selection = 0;
     }
-    
-    // GET and SET section
     
     public String getInput() { return this.input; }
     public void setInput(String input) { this.input = input; }
@@ -34,6 +34,24 @@ public class DataHolder {
         // copy function given to method into last index of new array
         newFunctionList[newFunctionList.length - 1] = function;
         // assign new array to original refference
+        this.functionList = newFunctionList;
+        // set selection to lastly added function
+        this.selection = this.functionList.length - 1;
+    }
+    
+    public void removeFunction() {
+        // if functionList is empty, do nothing
+        if (this.functionList.length == 0) return;
+        // create new array one shorter than original
+        Function[] newFunctionList = new Function[functionList.length - 1];
+        // iterate through new array
+        for (int i = 0; i < newFunctionList.length; i++) {
+            // if selection is less than counter, assign same value index
+            if (i < selection) newFunctionList[i] = functionList[i];
+            // else assign index one member above
+            else newFunctionList[i] = functionList[i + 1];
+        }
+        // assign new array to original one
         this.functionList = newFunctionList;
     }
     
@@ -68,8 +86,12 @@ public class DataHolder {
         // Variable for gathering all names into formatted string.
         String functionListString = "";
         // iterare through function list
-        for (Function f: functionList) {
-            functionListString += f.getName() + "\n";
+        for (int i = 0; i < functionList.length; i++) {
+            // if selection on current position, write asterisk...
+            if (i == selection) functionListString += "* ";
+            // otherways write only space
+            else functionListString += "  ";
+            functionListString += functionList[i].getName() + "\n";
         }
         return functionListString;
     }

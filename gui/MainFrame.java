@@ -86,6 +86,7 @@ public class MainFrame extends JFrame {
         this.dialogAddFunction = new DialogAddFunction(this.data, this);
         
         this.buttonRemove = new ButtonRemove();
+        this.buttonRemove.addMouseListener(mouseHandler);
         this.add(buttonRemove);
         
         this.buttonUp = new ButtonUp();
@@ -149,6 +150,12 @@ public class MainFrame extends JFrame {
         public void mouseClicked(MouseEvent e) {
             if (e.getSource() == buttonAdd) {
                 dialogAddFunction.setVisible(true);
+            }
+            if (e.getSource() == buttonRemove) {
+                data.removeFunction();
+                data.process();
+                methodList.setText(data.getFunctionList());
+                textOutput.setText(data.getOutput());
             }
         }
 
