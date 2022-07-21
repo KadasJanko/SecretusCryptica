@@ -59,4 +59,18 @@ public class DataHolder {
         // store result into output
         this.output = tempString;
     }
+    
+    /**
+     * Returns formatted string with names of all functions.
+     */
+    public String getFunctionList() {
+        
+        // Variable for gathering all names into formatted string.
+        String functionListString = "";
+        // iterare through function list
+        for (Function f: functionList) {
+            functionListString += f.getName() + "\n";
+        }
+        return functionListString;
+    }
 }

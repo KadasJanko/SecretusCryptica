@@ -78,8 +78,10 @@ public class DialogAddFunction extends JFrame {
                         data.addFunction(new FunctionReverseText());
                         // invoke processing data through function list
                         data.process();
-                        // update text on output
+                        // update text on output in  mainFrame
                         mainFrame.textOutput.setText(data.getOutput());
+                        // update MethodList in mainFrame
+                        mainFrame.methodList.setText(data.getFunctionList());
                         // close this function selection dialog
                         dispose();
                         break;

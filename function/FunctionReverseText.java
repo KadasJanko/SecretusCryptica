@@ -5,11 +5,13 @@ public class FunctionReverseText extends Function {
     // default Constructor
     public FunctionReverseText() {
         super();
+        this.name = "Reverse text";
     }
     
     // custom Constructor
     public FunctionReverseText(String input) {
         super(input);
+        this.name = "Reverse text";
     }
     
     /**
