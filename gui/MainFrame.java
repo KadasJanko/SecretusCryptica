@@ -83,7 +83,7 @@ public class MainFrame extends JFrame {
         this.buttonAdd.addMouseListener(mouseHandler);
         this.add(buttonAdd);
         
-        this.dialogAddFunction = new DialogAddFunction();
+        this.dialogAddFunction = new DialogAddFunction(this.data, this);
         
         this.buttonRemove = new ButtonRemove();
         this.add(buttonRemove);

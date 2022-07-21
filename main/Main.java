@@ -16,8 +16,6 @@ public class Main {
         MainFrame mainFrame = new MainFrame(data);
         
         // testing code snippet
-        FunctionReverseText reverser = new FunctionReverseText();
-        data.addFunction(reverser);
         // end of test
     }
 }

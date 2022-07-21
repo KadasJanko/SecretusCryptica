@@ -46,7 +46,7 @@ public class DataHolder {
             this.output = input;
             return;
         }
-        // temprary string for dtoring resluts
+        // temporary string for storing results
         String tempString = this.input;
         // iterate through function list
         for (Function f : functionList) {
