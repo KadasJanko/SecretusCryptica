@@ -4,10 +4,10 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-public class ButtonDown extends JButton {
+public class ButtonSelectDown extends JButton {
     
     // Constructor
-    public ButtonDown() {
+    public ButtonSelectDown() {
         
         this.setText("Down");
         this.setBounds(264, 106, 96, 24);

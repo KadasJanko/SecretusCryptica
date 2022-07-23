@@ -4,10 +4,10 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-public class ButtonUp extends JButton {
+public class ButtonSelectUp extends JButton {
     
     // Constructor
-    public ButtonUp() {
+    public ButtonSelectUp() {
         
         this.setText("Up");
         this.setBounds(264, 80, 96, 24);

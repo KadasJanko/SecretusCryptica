@@ -53,10 +53,26 @@ public class DataHolder {
         }
         // assign new array to original one
         this.functionList = newFunctionList;
+        // decrease selection index if not less than 0
+        if (this.selection > -1) this.selection--;
+    }
+    
+    public void selectUp() {
+        // if index is zero or less, do nothing
+        if (selection < 1) return;
+        // decrease selection (move asterisk one place up)
+        selection--;
+    }
+    
+    public void selectDown() {
+        // if index is more or equal to length of array -1, do nothing
+        if (selection >= (functionList.length - 1)) return;
+        // increase selection (move asterisk one place down)
+        selection++;
     }
     
     /**
-     * For now only set input directly to output.
+     * Does the processing of input through array of functions
      */
     public void process() {
         // if functionList length is 0, set input directly to output.

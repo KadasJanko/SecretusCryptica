@@ -29,8 +29,8 @@ public class MainFrame extends JFrame {
     
     public ButtonAdd buttonAdd;
     public ButtonRemove buttonRemove;
-    public ButtonUp buttonUp;
-    public ButtonDown buttonDown;
+    public ButtonSelectUp buttonSelectUp;
+    public ButtonSelectDown buttonSelectDown;
     public ButtonMoveUp buttonMoveUp;
     public ButtonMoveDown buttonMoveDown;
     public ButtonSetup buttonSetup;
@@ -89,11 +89,13 @@ public class MainFrame extends JFrame {
         this.buttonRemove.addMouseListener(mouseHandler);
         this.add(buttonRemove);
         
-        this.buttonUp = new ButtonUp();
-        this.add(buttonUp);
+        this.buttonSelectUp = new ButtonSelectUp();
+        this.buttonSelectUp.addMouseListener(mouseHandler);
+        this.add(buttonSelectUp);
         
-        this.buttonDown = new ButtonDown();
-        this.add(buttonDown);
+        this.buttonSelectDown = new ButtonSelectDown();
+        this.buttonSelectDown.addMouseListener(mouseHandler);
+        this.add(buttonSelectDown);
         
         this.buttonMoveUp = new ButtonMoveUp();
         this.add(buttonMoveUp);
@@ -156,6 +158,14 @@ public class MainFrame extends JFrame {
                 data.process();
                 methodList.setText(data.getFunctionList());
                 textOutput.setText(data.getOutput());
+            }
+            if (e.getSource() == buttonSelectUp) {
+                data.selectUp();
+                methodList.setText(data.getFunctionList());
+            }
+            if (e.getSource() == buttonSelectDown) {
+                data.selectDown();
+                methodList.setText(data.getFunctionList());
             }
         }
 
