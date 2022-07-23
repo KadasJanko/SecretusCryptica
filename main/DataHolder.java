@@ -71,6 +71,38 @@ public class DataHolder {
         selection++;
     }
     
+    public void moveUp() {
+        // if length of function array is less than 2, do nothing
+        if (this.functionList.length < 2) return;        
+        // if index is zero or less, do nothing
+        if (selection < 1) return;
+        // do the swapping stuff
+        // temporary variable
+        Function tempFunction = this.functionList[selection - 1];
+        // first swap step
+        this.functionList[selection - 1] = this.functionList[selection];
+        // second swap step
+        this.functionList[selection] = tempFunction;
+        // decrease selection index (move asterisk one place up)
+        this.selection--;
+    }
+    
+    public void moveDown() {
+        // if length of function array is less than 2, do nothing
+        if (this.functionList.length < 2) return;
+        // if index is more or equal to functionList lenght, do nothing
+        if (selection >= (functionList.length - 1)) return;
+        // do the swapping stuff
+        // temporary variable
+        Function tempFunction = this.functionList[selection + 1];
+        // first swap step
+        this.functionList[selection + 1] = this.functionList[selection];
+        // second swap step
+        this.functionList[selection] = tempFunction;
+        // increase selection index (move asterisk one place down)
+        this.selection++;
+    }
+    
     /**
      * Does the processing of input through array of functions
      */
