@@ -1,5 +1,6 @@
 package gui.dialog;
 
+import function.FunctionMultiply;
 import function.FunctionReverseText;
 import gui.MainFrame;
 import java.awt.Color;
@@ -17,7 +18,8 @@ public class DialogAddFunction extends JFrame {
     public MainFrame mainFrame;
     
     private String[] functionNamedList = {
-        "reverse text"
+        "reverse text",
+        "multiply"
     };
     public JComboBox<String> functionSelector;
     
@@ -76,6 +78,18 @@ public class DialogAddFunction extends JFrame {
                     case 0: // Reverse text selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionReverseText());
+                        // invoke processing data through function list
+                        data.process();
+                        // update text on output in  mainFrame
+                        mainFrame.textOutput.setText(data.getOutput());
+                        // update MethodList in mainFrame
+                        mainFrame.methodList.setText(data.getFunctionList());
+                        // close this function selection dialog
+                        dispose();
+                        break;
+                    case 1: // Multiply selected
+                        // add new function into given DataHolder
+                        data.addFunction(new FunctionMultiply());
                         // invoke processing data through function list
                         data.process();
                         // update text on output in  mainFrame
