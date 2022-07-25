@@ -1,7 +1,8 @@
 package gui.dialog;
 
-import function.FunctionMultiply;
+import function.FunctionRepeat;
 import function.FunctionReverseText;
+import function.FunctionSkip;
 import gui.MainFrame;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -19,7 +20,8 @@ public class DialogAddFunction extends JFrame {
     
     private String[] functionNamedList = {
         "reverse text",
-        "multiply"
+        "repeat characters",
+        "skip characters"
     };
     public JComboBox<String> functionSelector;
     
@@ -87,9 +89,21 @@ public class DialogAddFunction extends JFrame {
                         // close this function selection dialog
                         dispose();
                         break;
-                    case 1: // Multiply selected
+                    case 1: // Repeat selected
                         // add new function into given DataHolder
-                        data.addFunction(new FunctionMultiply());
+                        data.addFunction(new FunctionRepeat());
+                        // invoke processing data through function list
+                        data.process();
+                        // update text on output in  mainFrame
+                        mainFrame.textOutput.setText(data.getOutput());
+                        // update MethodList in mainFrame
+                        mainFrame.methodList.setText(data.getFunctionList());
+                        // close this function selection dialog
+                        dispose();
+                        break;
+                    case 2: // Skip selected
+                        // add new function into given DataHolder
+                        data.addFunction(new FunctionSkip());
                         // invoke processing data through function list
                         data.process();
                         // update text on output in  mainFrame

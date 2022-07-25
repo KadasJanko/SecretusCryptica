@@ -1,33 +1,33 @@
 package function;
 
-public class FunctionMultiply extends Function {
+public class FunctionRepeat extends Function {
     
     private int count;
     
     // default Constructor
-    public FunctionMultiply() {
+    public FunctionRepeat() {
         super();
         this.count = 2;
-        this.name = "Multiply text " + count + " times"; 
+        this.name = "Repeat characters " + count + " times"; 
     }
     
     // custom Constructor partial
-    public FunctionMultiply(String input) {
+    public FunctionRepeat(String input) {
         super(input);
         this.count = 2;
-        this.name = "Multiply text " + count + " times"; 
+        this.name = "Repeat characters " + count + " times"; 
     }
     
     // custom Constructor full
-    public FunctionMultiply(String input, int count) {
+    public FunctionRepeat(String input, int count) {
         super(input);
         this.count = count;
-        this.name = "Multiply text " + count + " times"; 
+        this.name = "Repeat characters " + count + " times"; 
     }
     
     public int getCount() { return this.count; }
     public void setCount(int count) {
-        // operate only if given count is 2 or more
+        // set only if given count is 2 or more
         if (count > 1) this.count = count;
     }
     

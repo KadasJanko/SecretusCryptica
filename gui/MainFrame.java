@@ -171,11 +171,15 @@ public class MainFrame extends JFrame {
             }
             if (e.getSource() == buttonMoveUp) {
                 data.moveUp();
+                data.process();
                 methodList.setText(data.getFunctionList());
+                textOutput.setText(data.getOutput());
             }
             if (e.getSource() == buttonMoveDown) {
                 data.moveDown();
+                data.process();
                 methodList.setText(data.getFunctionList());
+                textOutput.setText(data.getOutput());
             }
         }
 
