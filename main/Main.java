@@ -1,6 +1,6 @@
 package main;
 
-import function.FunctionReverseText;
+import function.FunctionSplitter;
 import gui.MainFrame;
 
 /**
@@ -16,6 +16,19 @@ public class Main {
         MainFrame mainFrame = new MainFrame(data);
         
         // testing code snippet
+        String message = "This text should be splitted into array of strings.";
+        
+        FunctionSplitter splitter = new FunctionSplitter(message, ' ');
+        splitter.process();
+        
+        String[] result = splitter.getOutputArray();
+        
+        System.out.println("Message: " + message);
+        System.out.println("Result:\n[");
+        for (String s : result) {
+            System.out.println(s);
+        }
+        System.out.println("]");
         // end of test
     }
 }
