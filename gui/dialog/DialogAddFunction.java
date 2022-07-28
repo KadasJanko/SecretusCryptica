@@ -2,6 +2,7 @@ package gui.dialog;
 
 import function.FunctionRepeat;
 import function.FunctionReverseText;
+import function.FunctionReverseWords;
 import function.FunctionSkip;
 import gui.MainFrame;
 import java.awt.Color;
@@ -20,6 +21,7 @@ public class DialogAddFunction extends JFrame {
     
     private String[] functionNamedList = {
         "reverse text",
+        "reverse words",
         "repeat characters",
         "skip characters"
     };
@@ -89,7 +91,19 @@ public class DialogAddFunction extends JFrame {
                         // close this function selection dialog
                         dispose();
                         break;
-                    case 1: // Repeat selected
+                    case 1: // Reverse words selected
+                        // add new function into given DataHolder
+                        data.addFunction(new FunctionReverseWords());
+                        // invoke processing data through function list
+                        data.process();
+                        // update text on output in  mainFrame
+                        mainFrame.textOutput.setText(data.getOutput());
+                        // update MethodList in mainFrame
+                        mainFrame.methodList.setText(data.getFunctionList());
+                        // close this function selection dialog
+                        dispose();
+                        break;
+                    case 2: // Repeat selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionRepeat());
                         // invoke processing data through function list
@@ -101,7 +115,7 @@ public class DialogAddFunction extends JFrame {
                         // close this function selection dialog
                         dispose();
                         break;
-                    case 2: // Skip selected
+                    case 3: // Skip selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionSkip());
                         // invoke processing data through function list
