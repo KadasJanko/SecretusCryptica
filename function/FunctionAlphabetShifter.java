@@ -45,6 +45,8 @@ public class FunctionAlphabetShifter extends Function {
     public void setCount(int count) {
         if (count < 0) {
             this.count = 0;
+            this.name = "Shift by " + this.count;
+            this.name += this.backwards ? " backwards" : " forwards";
             return;
         }
         if (count > 26) {
@@ -52,12 +54,20 @@ public class FunctionAlphabetShifter extends Function {
             while (count > 26) {
                 count -= 26;
             }
+            this.name = "Shift by " + this.count;
+            this.name += this.backwards ? " backwards" : " forwards";
             return;
         }
         this.count = count;
+        this.name = "Shift by " + this.count;
+        this.name += this.backwards ? " backwards" : " forwards";
     }
     public boolean getBackwards() { return this.backwards; }
-    public void setBackwards(boolean backwards) { this.backwards = backwards; }
+    public void setBackwards(boolean backwards) {
+        this.backwards = backwards;
+        this.name = "Shift by " + this.count;
+        this.name += this.backwards ? " backwards" : " forwards";
+    }
     
     /**
      * Do the alphabet shifting.

@@ -1,5 +1,6 @@
 package gui.dialog;
 
+import function.FunctionAlphabetShifter;
 import function.FunctionDoubleCharResolve;
 import function.FunctionRepeat;
 import function.FunctionReverseText;
@@ -25,7 +26,8 @@ public class DialogAddFunction extends JFrame {
         "reverse words",
         "repeat characters",
         "skip characters",
-        "resolve double characters"
+        "resolve double characters",
+        "shift alphabet"
     };
     public JComboBox<String> functionSelector;
     
@@ -132,6 +134,18 @@ public class DialogAddFunction extends JFrame {
                     case 4: // DoubleCharResolve selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionDoubleCharResolve());
+                        // invoke processing data through function list
+                        data.process();
+                        // update text on output in  mainFrame
+                        mainFrame.textOutput.setText(data.getOutput());
+                        // update MethodList in mainFrame
+                        mainFrame.methodList.setText(data.getFunctionList());
+                        // close this function selection dialog
+                        dispose();
+                        break;
+                    case 5: // AlphabetShifter selected
+                        // add new function into given DataHolder
+                        data.addFunction(new FunctionAlphabetShifter());
                         // invoke processing data through function list
                         data.process();
                         // update text on output in  mainFrame
