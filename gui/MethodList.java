@@ -15,5 +15,7 @@ public class MethodList extends JTextArea {
         this.setForeground(new Color(0, 255, 127));
         this.setMargin(new Insets(2, 2, 2, 2));
         this.setEditable(false);
+        this.setLineWrap(true);
+        this.setWrapStyleWord(true);
     }
 }

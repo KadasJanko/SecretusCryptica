@@ -7,6 +7,7 @@ import function.FunctionReverseText;
 import function.FunctionReverseWords;
 import function.FunctionSkip;
 import function.FunctionTurnText;
+import function.FunctionTurnWords;
 import function.FunctionWhiteSpaceRemover;
 import gui.MainFrame;
 import java.awt.Color;
@@ -31,7 +32,8 @@ public class DialogAddFunction extends JFrame {
         "resolve double characters",
         "shift alphabet",
         "remove white spaces",
-        "turn text"
+        "turn text",
+        "turn words"
     };
     public JComboBox<String> functionSelector;
     
@@ -182,6 +184,19 @@ public class DialogAddFunction extends JFrame {
                     case 7: // TurnText selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionTurnText());
+                        // invoke processing data through function list
+                        data.process();
+                        // update text on output in  mainFrame
+                        mainFrame.textOutput.setText(data.getOutput());
+                        // update MethodList in mainFrame
+                        mainFrame.methodList.setText(data.getFunctionList());
+                        // close this function selection dialog
+                        dispose();
+                        break;
+                            
+                    case 8: // TurnWords selected
+                        // add new function into given DataHolder
+                        data.addFunction(new FunctionTurnWords());
                         // invoke processing data through function list
                         data.process();
                         // update text on output in  mainFrame
