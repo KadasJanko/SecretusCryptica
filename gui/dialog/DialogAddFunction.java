@@ -6,6 +6,7 @@ import function.FunctionRepeat;
 import function.FunctionReverseText;
 import function.FunctionReverseWords;
 import function.FunctionSkip;
+import function.FunctionTurnText;
 import function.FunctionWhiteSpaceRemover;
 import gui.MainFrame;
 import java.awt.Color;
@@ -29,7 +30,8 @@ public class DialogAddFunction extends JFrame {
         "skip characters",
         "resolve double characters",
         "shift alphabet",
-        "remove white spaces"
+        "remove white spaces",
+        "turn text"
     };
     public JComboBox<String> functionSelector;
     
@@ -85,6 +87,7 @@ public class DialogAddFunction extends JFrame {
                 int option = functionSelector.getSelectedIndex();
                 
                 switch(option) {
+                    
                     case 0: // Reverse text selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionReverseText());
@@ -97,6 +100,7 @@ public class DialogAddFunction extends JFrame {
                         // close this function selection dialog
                         dispose();
                         break;
+                        
                     case 1: // Reverse words selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionReverseWords());
@@ -109,6 +113,7 @@ public class DialogAddFunction extends JFrame {
                         // close this function selection dialog
                         dispose();
                         break;
+                        
                     case 2: // Repeat selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionRepeat());
@@ -121,6 +126,7 @@ public class DialogAddFunction extends JFrame {
                         // close this function selection dialog
                         dispose();
                         break;
+                        
                     case 3: // Skip selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionSkip());
@@ -133,6 +139,7 @@ public class DialogAddFunction extends JFrame {
                         // close this function selection dialog
                         dispose();
                         break;
+                        
                     case 4: // DoubleCharResolve selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionDoubleCharResolve());
@@ -145,6 +152,7 @@ public class DialogAddFunction extends JFrame {
                         // close this function selection dialog
                         dispose();
                         break;
+                        
                     case 5: // AlphabetShifter selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionAlphabetShifter());
@@ -157,9 +165,23 @@ public class DialogAddFunction extends JFrame {
                         // close this function selection dialog
                         dispose();
                         break;
-                        case 6: // WhiteSpaceRemover selected
+                        
+                    case 6: // WhiteSpaceRemover selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionWhiteSpaceRemover());
+                        // invoke processing data through function list
+                        data.process();
+                        // update text on output in  mainFrame
+                        mainFrame.textOutput.setText(data.getOutput());
+                        // update MethodList in mainFrame
+                        mainFrame.methodList.setText(data.getFunctionList());
+                        // close this function selection dialog
+                        dispose();
+                        break;
+                        
+                    case 7: // TurnText selected
+                        // add new function into given DataHolder
+                        data.addFunction(new FunctionTurnText());
                         // invoke processing data through function list
                         data.process();
                         // update text on output in  mainFrame
