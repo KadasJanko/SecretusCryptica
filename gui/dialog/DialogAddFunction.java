@@ -6,6 +6,7 @@ import function.FunctionRepeat;
 import function.FunctionReverseText;
 import function.FunctionReverseWords;
 import function.FunctionSkip;
+import function.FunctionWhiteSpaceRemover;
 import gui.MainFrame;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -27,7 +28,8 @@ public class DialogAddFunction extends JFrame {
         "repeat characters",
         "skip characters",
         "resolve double characters",
-        "shift alphabet"
+        "shift alphabet",
+        "remove white spaces"
     };
     public JComboBox<String> functionSelector;
     
@@ -146,6 +148,18 @@ public class DialogAddFunction extends JFrame {
                     case 5: // AlphabetShifter selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionAlphabetShifter());
+                        // invoke processing data through function list
+                        data.process();
+                        // update text on output in  mainFrame
+                        mainFrame.textOutput.setText(data.getOutput());
+                        // update MethodList in mainFrame
+                        mainFrame.methodList.setText(data.getFunctionList());
+                        // close this function selection dialog
+                        dispose();
+                        break;
+                        case 6: // WhiteSpaceRemover selected
+                        // add new function into given DataHolder
+                        data.addFunction(new FunctionWhiteSpaceRemover());
                         // invoke processing data through function list
                         data.process();
                         // update text on output in  mainFrame
