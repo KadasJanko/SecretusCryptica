@@ -15,6 +15,8 @@ public class Main {
         MainFrame mainFrame = new MainFrame(data);
         
         // testing code snippet
+        System.out.println(data.getCharacterKey(true, false, true, false, false));
+        System.out.println(data.getCharacterKey(true, true, true, true, true));
         // end of test
     }
 }

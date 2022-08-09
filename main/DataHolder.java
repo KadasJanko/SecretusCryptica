@@ -10,6 +10,12 @@ public class DataHolder {
     private Function[] functionList;
     private int selection;
     
+    private final String lowerCase = "abcdefghijklmnopqrstuvwxyz";
+    private final String upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private final String numbers = "0123456789";
+    private final String operands = "+-*/%=&|^";
+    private final String specials = ".,?!'\"()[]{}\\@#$*";
+    
     // Constructor
     public DataHolder() {
         
@@ -124,6 +130,24 @@ public class DataHolder {
         }
         // store result into output
         this.output = tempString;
+    }
+    
+    /**
+     * Appends chosen sets of characters (lower cases, upper cases, numbers,
+     * etc.) into single output.
+     */
+    public String getCharacterKey(boolean lowerCase, boolean upperCase,
+            boolean numbers, boolean operands, boolean specials) {
+        
+        String key = "";
+        
+        if (lowerCase) key += this.lowerCase;
+        if (upperCase) key += this.upperCase;
+        if (numbers) key += this.numbers;
+        if (operands) key += this.operands;
+        if (specials) key += this.specials;
+        
+        return key;
     }
     
     /**
