@@ -17,7 +17,7 @@ public class FunctionTurnWords extends Function {
         this.wordSeparator = ' ';
         this.name = "Turn words ";
         this.name += (backwards ? "backwards" : "forwards");
-        this.name += " " + count + " times, separator \'" + this.wordSeparator + "\'";
+        this.name += " " + count + "x, separator \'" + this.wordSeparator + "\'";
         this.splitter = new FunctionSplitter();
         this.turnText = new FunctionTurnText();
         this.joiner = new FunctionJoiner();
@@ -31,7 +31,7 @@ public class FunctionTurnWords extends Function {
         this.wordSeparator = ' ';
         this.name = "Turn words ";
         this.name += (backwards ? "backwards" : "forwards");
-        this.name += " " + count + " times, separator \'" + this.wordSeparator + "\'";
+        this.name += " " + count + "x, separator \'" + this.wordSeparator + "\'";
         this.splitter = new FunctionSplitter();
         this.turnText = new FunctionTurnText();
         this.joiner = new FunctionJoiner();
@@ -45,7 +45,7 @@ public class FunctionTurnWords extends Function {
         this.wordSeparator = wordSeparator;
         this.name = "Turn words ";
         this.name += (backwards ? "backwards" : "forwards");
-        this.name += " " + count + " times, separator \'" + this.wordSeparator + "\'";
+        this.name += " " + count + "x, separator \'" + this.wordSeparator + "\'";
         this.splitter = new FunctionSplitter();
         this.turnText = new FunctionTurnText();
         this.joiner = new FunctionJoiner();
@@ -55,7 +55,7 @@ public class FunctionTurnWords extends Function {
     public void setBackwards(boolean backwards) {
         this.backwards = backwards;
         this.name = "turn text " + (this.backwards ? "backwards" : "forwards");
-        this.name += " " + count + " times, separator \'" + this.wordSeparator + "\'";
+        this.name += " " + count + "x, separator \'" + this.wordSeparator + "\'";
     }
     public int getCount() { return this.count; }
     public void setCount(int count) {
@@ -63,13 +63,13 @@ public class FunctionTurnWords extends Function {
         if (this.count < 0) return;
         this.count = count;
         this.name = "turn text " + (this.backwards ? "backwards" : "forwards");
-        this.name += " " + count + " times, separator \'" + this.wordSeparator + "\'";
+        this.name += " " + count + "x, separator \'" + this.wordSeparator + "\'";
     }
     public char getWordSeparator() { return this.wordSeparator; }
     public void setWordSeparator(char wordSeparator) {
         this.wordSeparator = wordSeparator;
         this.name = "turn text " + (this.backwards ? "backwards" : "forwards");
-        this.name += " " + count + " times, separator \'" + this.wordSeparator + "\'";
+        this.name += " " + count + "x, separator \'" + this.wordSeparator + "\'";
     }
     
     /**

@@ -52,6 +52,17 @@ public class MainFrame extends JFrame {
         
         this.data = data;
         
+        this.buildFrame();
+        
+        this.setVisible(true);
+    }
+    
+    /**
+     * Composites menu bar with its elements, all frame components, creates
+     * instances of listeners.
+     */
+    private void buildFrame() {
+        
         this.menu = new Menu();
         this.add(menu);
         
@@ -110,13 +121,11 @@ public class MainFrame extends JFrame {
         
         this.methodList = new MethodList();
         JScrollPane methodListScrollPane = new JScrollPane(methodList);
-        methodListScrollPane.setBounds(364, 28, 256, 208);
+        methodListScrollPane.setBounds(364, 28, 350, 208);
         methodListScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         methodListScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         methodListScrollPane.setBorder(BorderFactory.createBevelBorder(1));
         this.add(methodListScrollPane);
-        
-        this.setVisible(true);
     }
     
     class ActionHandler implements ActionListener {
