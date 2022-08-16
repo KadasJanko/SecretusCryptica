@@ -3,6 +3,7 @@ package gui.dialog;
 import function.FunctionAlphabetShifter;
 import function.FunctionDoubleCharResolve;
 import function.FunctionRepeat;
+import function.FunctionReplace;
 import function.FunctionReverseText;
 import function.FunctionReverseWords;
 import function.FunctionShuffle;
@@ -35,7 +36,8 @@ public class DialogAddFunction extends JFrame {
         "remove white spaces",
         "turn text",
         "turn words",
-        "shuffle"
+        "shuffle",
+        "replace text"
     };
     public JComboBox<String> functionSelector;
     
@@ -212,6 +214,19 @@ public class DialogAddFunction extends JFrame {
                     case 9: // Shuffle selected
                         // add new function into given DataHolder
                         data.addFunction(new FunctionShuffle());
+                        // invoke processing data through function list
+                        data.process();
+                        // update text on output in  mainFrame
+                        mainFrame.textOutput.setText(data.getOutput());
+                        // update MethodList in mainFrame
+                        mainFrame.methodList.setText(data.getFunctionList());
+                        // close this function selection dialog
+                        dispose();
+                        break;
+                        
+                    case 10: // Replace selected
+                        // add new function into given DataHolder
+                        data.addFunction(new FunctionReplace());
                         // invoke processing data through function list
                         data.process();
                         // update text on output in  mainFrame
